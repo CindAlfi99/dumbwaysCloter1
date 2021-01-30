@@ -1,6 +1,10 @@
 <?php
 session_start();
 require '../conn.php';
+if(!isset($_SESSION['user'])){
+  header('Location: index.php');
+}
+$user = mysqli_query($conn, "SELECT * FROM user");
 
 if(isset($_POST['submit'])){
   // var_dump($_FILES);
@@ -164,13 +168,16 @@ $id_user = $_POST['id_user'];
           </select>
         </div>
         <div class="form-group ">
-          <label for="">Id_distribusi </label>
+          <label for="">Id_user </label>
           <select class="custom-select" name="id_user">
             <option selected>Pilih id_user</option>
-            <?php  $numbers = [1,2,3,4,5];?>
-            <?php foreach( $numbers as $num): ?>
-            <option value="<?=$num; ?>"><?=$num; ?></option>
-<?php endforeach; ?>
+            
+            <?php while($id = mysqli_fetch_assoc($user)): ?> 
+              <option value="<?= $id['id']; ?>"><?=$id['id']; ?>
+            <?php endwhile; ?>
+            </option>
+            
+            
 
           </select>
         </div>

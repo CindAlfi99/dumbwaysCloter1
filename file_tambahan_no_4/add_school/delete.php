@@ -1,17 +1,23 @@
 <?php
-
+session_start();
 require '../conn.php';
+if(!isset($_SESSION['user'])){
+  header('Location : index.php');
+  
+}
+
 if(isset($_GET['id'])){
 $id = $_GET['id'];
 $query = mysqli_query($conn, "DELETE FROM school_db WHERE id=$id");
 if($query){
     
-    echo  "window.location ='../4.php' </script> ";
+    "<script> alert('data berhasil dihapus');
+    window.location ='../4.php' </script> ";
 
 }
 }else{
     echo "<script>
-    window.location ='../l4.php'
+    window.location ='../4.php'
     </script>";
     
     exit;

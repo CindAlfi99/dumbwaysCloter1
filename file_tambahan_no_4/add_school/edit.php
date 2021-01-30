@@ -1,6 +1,12 @@
 <?php
-
+session_start();
 require '../conn.php';
+
+if(!isset($_SESSION['user'])){
+  header('Location: index.php');
+}
+
+
 if(isset($_GET['id'])){
 $id = $_GET['id'];
 $query =  mysqli_query($conn, "SELECT * FROM school_db WHERE id=$id");

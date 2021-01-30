@@ -22,10 +22,10 @@ ON school_db.id_user = user.id" );
 
 <body>
 
-<h1 class="mt-5 m-3">School Data</h1>
+<h1 class="mt-5 m-3 bg-warning d-inline">School Data</h1>
 
-<div style="float:right;" class="mr-5 "><a href="add_school/add.php"><button class="btn btn-primary">Add School</button></a></div>
-<div style="float:right;" class="mr-5 "><a href="add_user/add.php"><button class="btn btn-primary">Add User</button></a></div>
+<div style="float:right;" class="mr-5 "><a href="add_school/add.php"><button class="btn btn-primary bg-success">Add School</button></a></div>
+<div style="float:right;" class="mr-5 "><a href="add_user/add.php"><button class="btn btn-primary ">Add User</button></a></div>
 <br>
 <div class="row mt-5 m-5">
 
@@ -40,7 +40,7 @@ ON school_db.id_user = user.id" );
    
   </div>
   
-<a href="add_school/detail.php?id=<?=$row['id']; ?>" class="btn btn-primary">Detail</a>
+<a href="add_school/detail.php?id=<?=$row['id']; ?>" class="btn btn-primary ">Detail</a>
 
 </div>
 </div>

@@ -44,7 +44,7 @@ WHERE school_db.id=$id");
         <p class="card-text"><b>Status Sekolah : <?=$row['status_school']; ?></b> </p>
         <p class="card-text"><b>Dibuat oleh : <?=$row['names']; ?></b> </p>
          <a href="edit.php?id=<?=$row['id']; ?>" class="btn btn-primary">Edit</a>
-         <a href="delete.php?id=<?=$row['id']; ?>" onclick="return confirm('Confirm');" class="btn btn-primary">Delete</a>
+         <a href="delete.php?id=<?=$row['id']; ?>" class="btn btn-primary">Delete</a>
       <!-- </div> -->
     </div>
     <button type="button" class="btn btn-link col-md-2" onclick="document.location.href='../4.php';">Back</button>

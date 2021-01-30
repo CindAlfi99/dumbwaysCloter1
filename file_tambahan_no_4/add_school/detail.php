@@ -1,10 +1,10 @@
 <?php
  require '../conn.php';
   $id = $_GET['id'];
-     $query = mysqli_query($conn, "SELECT school_db.id,school_db.name_school, school_db.logo_school, school_db.status_school, user.names FROM school_db
+     $query = mysqli_query($conn, "SELECT school_db.id,school_db.name_school,school_db.school_level, school_db.addres,school_db.NPSN ,school_db.logo_school, school_db.status_school, user.names FROM school_db
 JOIN user
 ON school_db.id_user = user.id
-WHERE school_db.id_user=$id");
+WHERE school_db.id=$id");
 
 
 ?>
@@ -17,7 +17,7 @@ WHERE school_db.id_user=$id");
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="../css/bootstrap.min.css">
 
-  <title>Frozen Food</title>
+  <title>School Data</title>
   
 </head>
 
@@ -36,22 +36,23 @@ WHERE school_db.id_user=$id");
       
       <!-- <div class="col-md-8"> -->
       <div class="card-body">
-      <h5 class="card-title"><?=$row['logo_school']; ?></h5>
-        <h5 class="card-title">NPSN :<?=$row['NPSN']; ?></h5>
-        <p class="card-text">Name Sekolah :<?=$row['name_school']; ?></p>
-        <p class="card-text"><b>Address</b>: <?=$row['address']; ?></p>
-        <p class="card-text"><b>Level Sekolah :</b>: <?=$row['school_level']; ?></p>
-        <p class="card-text"><b>Status Sekolah:</b>: <?=$row['status_school']; ?></p>
-        <p class="card-text"><b>Dibuat oleh :</b>: <?=$row['names']; ?></p>
+      
+        <p class="card-title"><b>NPSN : <?=$row['NPSN']; ?></b></p>
+        <p class="card-text"><b>Nama Sekolah : <?=$row['name_school']; ?></b></p>
+        <p class="card-text"><b>Address : <?=$row['addres']; ?></b> </p>
+        <p class="card-text"><b>Level Sekolah : <?=$row['school_level']; ?></b> </p>
+        <p class="card-text"><b>Status Sekolah : <?=$row['status_school']; ?></b> </p>
+        <p class="card-text"><b>Dibuat oleh : <?=$row['names']; ?></b> </p>
          <a href="edit.php?id=<?=$row['id']; ?>" class="btn btn-primary">Edit</a>
-         <a href="delete.php?id=<?=$row['id']; ?>" class="btn btn-primary">Delete</a>
+         <a href="delete.php?id=<?=$row['id']; ?>" onclick="return confirm('Confirm');" class="btn btn-primary">Delete</a>
       <!-- </div> -->
     </div>
+    <button type="button" class="btn btn-link col-md-2" onclick="document.location.href='../4.php';">Back</button>
       <?php endwhile; ?>
        <!-- button back -->
   
  </div>
- <button type="button" class="btn btn-link ml-5" onclick="document.location.href='../4.php';">Back</button>
+ 
   </div>
  
 </div>

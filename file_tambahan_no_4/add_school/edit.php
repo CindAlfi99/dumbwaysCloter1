@@ -3,7 +3,7 @@
 require '../conn.php';
 if(isset($_GET['id'])){
 $id = $_GET['id'];
-$query =  mysqli_query($conn, "SELECT * FROM product WHERE id=$id");
+$query =  mysqli_query($conn, "SELECT * FROM school_db WHERE id=$id");
 $result = mysqli_fetch_assoc($query);
 }
 
@@ -85,31 +85,33 @@ if(isset($_POST['submit'])){
 
  <div class="container">
  <form class="mt-4" method="post" action="" enctype="multipart/form-data">
+ <input type="hidden" name="gambarLama" value="<?= $result['logo_school']; ?>">
       <div class="form-row d-block">
    
         <div class="form-group ">
           <label for="name">NPSN </label>
-          <input type="text" name="npsn" class="form-control" id="name">
+          <input type="text" name="npsn" class="form-control" id="name" value="<?= $result['NPSN'] ?>">
         </div>
         <div class="form-row d-block">
    
         <div class="form-group ">
           <label for="name_school">Name School </label>
-          <input type="text" name="name_school" class="form-control" id="name_school">
+          <input type="text" name="name_school" class="form-control" id="name_school" value="<?= $result['name_school'] ?>">
         </div>
         <div class="form-group">
         <div>
         
   <label for="address" class="form-label">Address</label>
-  <textarea class="form-control" id="address" rows="2" name="address"></textarea>
+  <input type="text" class="form-control" id="address" rows="2" name="address" value="<?= $result['addres'] ?>"></input>
 </div>
         </div>
         <div class="form-group">
 <div>
-                
-         <label for="inputZip">Logo School</label>
+<label for="inputZip">Logo School</label><br>
+<img src="img/<?=$result['logo_school'] ?>" width="200px"alt=""><br>
+         <label for="inputZip"><?= $result['logo_school'] ?></label>
         <div class="input-group mb-3">
-  <input type="file" class="form-control" id="inputGroupFile02" name="logo_school">
+  <input type="file" class="form-control" id="inputGroupFile02" name="logo_school" value="<?= $result['logo_school'] ?>">
   <label class="input-group-text" for="inputGroupFile02">Upload</label>
 </div> 
          
@@ -123,7 +125,7 @@ if(isset($_POST['submit'])){
         </div>
         <div class="form-group ">
           <label for="level">School Level </label>
-          <input type="text" name="school_level" class="form-control" id="level">
+          <input type="text" name="school_level" class="form-control" id="level" value="<?= $result['school_level'] ?>">
         </div>
  
       </div>
@@ -140,7 +142,7 @@ if(isset($_POST['submit'])){
             <option selected>Pilih Status</option>
             <?php  $numbers = [NEGERI,SWASTA];?>
             <?php foreach( $numbers as $num): ?>
-            <option value="<?=$num; ?>" <?= $result['id_distribusi'] == $num ? "selected" : "" ?>><?=$num; ?></option>
+            <option value="<?=$num; ?>" <?= $result['status_school'] == $num ? "selected" : "" ?>><?=$num; ?></option>
 <?php endforeach; ?>
 
           </select>
@@ -151,7 +153,7 @@ if(isset($_POST['submit'])){
           <option selected>Pilih id_user</option>
             <?php  $numbers = [1,2,3,4,5];?>
             <?php foreach( $numbers as $num): ?>
-            <option value="<?=$num; ?>" <?= $result['id_distribusi'] == $num ? "selected" : "" ?>><?=$num; ?></option>
+            <option value="<?=$num; ?>" <?= $result['id_user'] == $num ? "selected" : "" ?>><?=$num; ?></option>
 <?php endforeach; ?>>
 
           </select>

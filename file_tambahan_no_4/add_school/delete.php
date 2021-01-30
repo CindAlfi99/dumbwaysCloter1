@@ -6,7 +6,7 @@ $id = $_GET['id'];
 $query = mysqli_query($conn, "DELETE FROM school_db WHERE id=$id");
 if($query){
     
-    echo  "<script>window.location ='../4.php' </script> ";
+    echo  "window.location ='../4.php' </script> ";
 
 }
 }else{

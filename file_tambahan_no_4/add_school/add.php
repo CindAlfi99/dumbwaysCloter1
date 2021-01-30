@@ -53,7 +53,8 @@ if(isset($_POST['submit'])){
     $namaFileBaru .= $ekstendGambar;
    
     move_uploaded_file($tmpName,'img/'.$namaFileBaru);
-    echo "<script>alert('data berhasil ditambah')</script>";
+    echo "<script>alert('data berhasil ditambah');
+    window.location= '../4.php'</script>";
     // return $namaFile;
     
 
@@ -69,11 +70,12 @@ if(isset($_POST['submit'])){
 
 $name_school = $_POST['name_school'];
 $address = $_POST['address'];
+
 $level = $_POST['school_level'];
 $status = $_POST['status'];
 $id_user = $_POST['id_user'];
 
-    $query = mysqli_query($conn, "INSERT INTO school_db VALUES('','$name','$name_school','$namaFileBaru','$level','$status','$id_user')");
+    $query = mysqli_query($conn, "INSERT INTO school_db VALUES('','$npsn','$name_school','$address','$namaFileBaru','$level','$status','$id_user')");
 
 //     if(isset($query)) {
    //  $_SESSION['add'] = true;

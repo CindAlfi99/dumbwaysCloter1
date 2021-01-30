@@ -2,7 +2,7 @@
  require 'conn.php';
  require 'template/template.php';
 
-$query = mysqli_query($conn, "SELECT school_db.id, school.logo_school, school_db.status_school ,school_db.name_school FROM school_db 
+$query = mysqli_query($conn, "SELECT school_db.id, school_db.logo_school, school_db.status_school ,school_db.name_school FROM school_db 
 JOIN user
 ON school_db.id_user = user.id" );
 
@@ -33,14 +33,14 @@ ON school_db.id_user = user.id" );
 <?php while ($row = mysqli_fetch_assoc($query)):  ?>
   <div class="col-3 mt-5">
   <div class="card " style="width: 18rem;">
-  <img src="file_tambahan_no_4/add_school/img/<?= $row['logo_school']?>" class="card-img-top" >
+  <img src="add_school/img/<?= $row['logo_school']?>" class="card-img-top" >
   <div class="card-body">
     <h5 class="card-title"><?= $row['name_school'] ?></h5>
     <p class="card-text"><?= $row['status_school']?></p>
    
   </div>
   
-<a href="file_tambahan_no_4/add_school/detail.php?id=<?=$row['id']; ?>" class="btn btn-primary">Detail</a>
+<a href="add_school/detail.php?id=<?=$row['id']; ?>" class="btn btn-primary">Detail</a>
 
 </div>
 </div>

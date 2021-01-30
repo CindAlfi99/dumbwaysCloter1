@@ -19,7 +19,7 @@ function lamaKredit(lamaKredit) {
         Kredit = 24;
         angsuran = sisa / Kredit;
 
-    } else if (lamaKredit === "18 Bulan") {
+    } else if (lamaKredit === "24 Bulan") {
         type = 300000000;
         namaRUmah = "Gold";
         uangMuka = type / 5;
@@ -40,8 +40,8 @@ function lamaKredit(lamaKredit) {
     document.write(`Sisa :${sisa} <br>`);
     document.write(`Lama Kredit :${Kredit} <br>`);
     document.write(`Angsuran :${angsuran} <br>`);
-    document.write('<table border="1" cellspacing="0" style="width:50%">');
-    document.write('<tr><td>Bulan Ke</td><td>Angsuran</td><td>Sisa</td></tr>');
+    document.write('<table border="1" cellspacing="0" style="width:25%">');
+    document.write('<tr><td><b>Bulan Ke</b></td><td><b>Angsuran</b></td><td><b>Sisa</b></td></tr>');
     for (let i = 1; i <= Kredit; i++) {
 
         document.write('<tr>');
@@ -59,4 +59,4 @@ function lamaKredit(lamaKredit) {
     document.write('</table>');
 
 }
-lamaKredit("18 Bulan");
+lamaKredit("12 Bulan");

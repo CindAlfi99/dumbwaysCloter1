@@ -15,6 +15,7 @@
 # cara menjalankan :
 #import db school_data
 #jalankan localhost
+#masukkan salah satu password dan name yg terdapat di database
 
 # untuk soal nomor 4
 #terdapat di folder "file_tambahan_no_4"
